@@ -39,18 +39,17 @@ docker build -t <tag> .
 ### Lancement de l'image
 #### Identification des droits
 L'image docker-cat necessite préalablement d'identifier les fichiers qui doivent
-être accessubkes (ou non) par SonarQube. Ainsi il faut identifier:
+être accessibles (ou non) par SonarQube. Ainsi il faut identifier:
 
 - Le dossier qui devra être accessible par docker
 - Les fichiers accessibles par SonarQube
 
 #### Choix du dossier partagé avec Docker
-Le conteneur docker bénificie de droits **root** sur les fichiers qui lui sont
-partagés, une fois le conteneur lancé. Il faut donc être précis et privilégier
-éventuellement de ne laisser qu'un seul dossier "*Workspace*" pour son
-utilisation.
+Le conteneur docker bénéficie de droits **root** sur les fichiers qui lui sont
+partagé. Il faut donc être précis et privilégier éventuellement de ne laisser
+qu'un seul dossier "*Workspace*" pour son utilisation.
 
-#### Fichiers accessible par SonarQube
+#### Fichiers accessibles par SonarQube
 La variable `ALLOWED_GROUPS` permet de définir une liste de GID (identifiant de
 groupe utilisateur) auquel appartiendra l'utilisateur `sonarqube` sur le
 conteneur.
@@ -62,7 +61,7 @@ de la colonne groupes
 - Pour chaque groupe, identifier le GID correspondant via `cat /etc/groups` ou
 `getent <group_name> | cut -d : -f3`
 
-Enfin pour chaque GID identifié ajouter `-e ALLOWED_GROUPS="<GID1>;<GID2>;<...>"`
+Enfin un fois les GID identifiés ajouter `-e ALLOWED_GROUPS="<GID1>;<GID2>;<...>"`
 lors du lancement du conteneur.
 
 #### Lancement du conteneur.
@@ -77,7 +76,7 @@ Si le lancement du conteneur à fonctionné vous pouvez vous rendre sur
 
 **ATTENTION:** La base de donnée par défaut est une base de donnée éphémère.
 Pensez à bien exporter vos analyses ou à lier une base de donnée à Docker
-(cf *Lier une base de données à Docker*).
+(cf *Lier une base de données à Docker* plus loin).
 
 Rendez vous sur l'interface web depuis un navigateur via l'url
 [http://localhost:9000](http://localhost:9000/) puis connectez-vous.
@@ -110,7 +109,7 @@ les résultats ou exportez les via *More -> CNES Report*
 L'image docker-cat peut être utilisé directement sur un poste utilisateur.
 C'est principalement pour cette utilisation par les responsables qualités qu'a
 été réalisée cette image. Dans ce cas d'utilisation il suffit simplement de
-placer les projets  analyserdans le dossier partagé avec Docker.
+placer les projets à analyser dans le dossier partagé avec Docker.
 
 ##### Sur un serveur
 Contrairement à **SonarQube**, le CAT n'est pas prévue pour une utilisation en
@@ -133,9 +132,9 @@ base de donnée à l'image docker-cat.
 Si vous avez déjà une base de donnée il suffit d'ajouter les variables
 d'environnement suivantes au lancement du conteneur:
 
-- SONARQUBE_JDBC_USERNAME
-- SONARQUBE_JBDC_PASSWORD
-- SONARQUBE_JBDC_URL
+- `SONARQUBE_JDBC_USERNAME`
+- `SONARQUBE_JDBC_PASSWORD`
+- `SONARQUBE_JDBC_URL`
 
 Si vous n'avez pas de base de données, vous pouvez utiliser le fichier
 `docker-compose.yml` du [dépot git](https://github.com/lequal/docker-cat) après
