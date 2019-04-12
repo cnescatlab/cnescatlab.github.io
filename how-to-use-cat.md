@@ -12,8 +12,9 @@ Cette section décrit la procédure d'installation de manière plus complète af
 d'adapter l'installation de CAT vos besoins.
 
 ### Prérequis
-Avant de pouvoir utiliser CAT vous devez avoir installé docker sur votre machine
-et vous devez avoir lancé le démon docker.
+Avant de pouvoir utiliser CAT vous devez avoir installé Docker CE sur votre
+machine et vous devez avoir lancé le démon docker.
+
 De plus votre compte utilisateur doit avoir accès au groupe `docker` de votre
 machine ou être `root` sur la machine.
 
@@ -67,10 +68,13 @@ lors du lancement du conteneur.
 #### Lancement du conteneur.
 Pour lancer le conteneur il suffit de taper:
 ```
-docker run -v <dossier_partage>:/media/sf_Shared:rw -p 9000:9000 -p 9001:9001 -e ALLOWED_GROUPS="<GID>" lequal/docker-cat:latest
+docker run -v <dossier_partage>:/media/Sf_Shared:rw -p 9000:9000 -p 9001:9001 -e ALLOWED_GROUPS="<GID>" lequal/docker-cat:latest
 ```
 Si le lancement du conteneur à fonctionné vous pouvez vous rendre sur
 [http://localhost:9000](http://localhost:9000/)
+
+Plus d'informations sur cette commande sont disponibles sur le
+[guide technique](/tech-guide)
 
 #### Utilisation de SonarQube
 
@@ -149,3 +153,6 @@ Pour ajouter un plugin vous devez modifier `Dockerfile` et ajouter le
 téléchargement de votre plugin vers `/opt/sonarqube/extensions/plugins`.
 
 Dans ce cas là référez vous à la section *Refaire un build complet*
+
+## Aller plus loin
+[Guide technique](tech-guide)

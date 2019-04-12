@@ -16,4 +16,5 @@ CAT est capable de réaliser une analyse de code sur les langages suivants:
 - Web (HTML, JavaScript, TypeScript, PHP, etc.)
 
 [En savoir plus sur CAT](cat) -
-[Installation / Utilisation de CAT](how-to-use-cat)
+[Installation / Utilisation de CAT](how-to-use-cat) -
+[Guide technique](tech-guide)
