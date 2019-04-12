@@ -38,7 +38,7 @@ la base de donnée `JDBC` et `sonar-app.jar`.
 
 ### Contenu partagé
 
-![Contenu partagé](img/archi-technique/partage.png)
+![Contenu partagé](img/doc-technique/archi-partage.png)
 
 Lors du lancement du conteneur, l'utilisateur choisit un dossier qui sera
 accessible dans un [volume docker](https://docs.docker.com/storage/volumes/)
@@ -85,6 +85,7 @@ docker run \
 ```
 
 **Paramètres:**
+
 - `-p 9000:9000` ouvre le port 9000 de la machine et le redirige sur le port
   9000 (pour communiquer avec SonarQube).
 - `-p 9001:9001` ouvre le port 9001, pour communiquer avec la JDBC.
@@ -96,6 +97,7 @@ docker run \
   l'utilisateur `sonarqube:sonarqube`
 
 **Mieux comprendre la variable `ALLOWED_GROUPS`**
+
 Tout utilisateur possède un **User ID** (**GID**) et un **Group ID** (**GID**).
 Au lancement du conteneur il est nécessaire de choisir les groupes auquel nous
 ajoutons SonarQube. Par exemple:
@@ -247,7 +249,7 @@ Une fois le conteneur lancé, il peut-être arrêté grâce à la commande
 `docker stop <nom_conteneur>` et redémarré avec la commande
 `docker restart <nom_conteneur>`.
 
-> **Rappel :** Pour pouvoir lancer les commandes docker, il faut que le docker deamon soit lancé (*en utilisant en `root` la commande `systemctl start docker`*). Il est aussi nécessaire qui lance le conteneur soit `root` ou appartienne au groupe `docker` (:warning: attention, faire partit du groupe `docker` revient à être `root` sur l'hôte).
+> **Rappel :** Pour pouvoir lancer les commandes docker, il faut que le docker deamon soit lancé (*en utilisant en `root` la commande `systemctl start docker`*). Il est aussi nécessaire qui lance le conteneur soit `root` ou appartienne au groupe `docker` (**attention**, faire partit du groupe `docker` revient à être `root` sur l'hôte).
 
 ### Persistance des données
 L'arrêt simple du conteneur n'en supprime pas son contenu, ainsi lorsqu'il est
@@ -258,6 +260,5 @@ Cela implique :
 - Que la base de données garde à ce moment là les analyses lancées.
 
 ## Suppression du conteneur
-### Commandes
 Il est possible de supprimer de manière définitive le conteneur (et sa base de
 données) grâce à la commande `docker rm <nom_conteneur>`.
