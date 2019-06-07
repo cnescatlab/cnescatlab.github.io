@@ -12,7 +12,7 @@ L'ensemble des outils et de leurs version sont directement lisible dans le
 
 ## Architecture
 ### Structure générale
-![Architecture globale](img/doc-technique/archi-globale.png)
+![Architecture globale](../img/doc-technique/archi-globale.png)
 
 Le **docker-cat** se découpe en 3 parties:
 - La partie *boot* contenant les fichiers de configuration de SonarQube et de
@@ -21,7 +21,7 @@ Le **docker-cat** se découpe en 3 parties:
 - Le contenu partagé où se trouve le code à analyser.
 
 ### Boot
-![Boot](img/doc-technique/boot.png)
+![Boot](../img/doc-technique/boot.png)
 
 Le boot est constitué d'un fichier `init.bash`, point d'entrée. Il contient les
 scripts de configuration des droits de l'utilisateur `sonarqube:sonarqube` du
@@ -29,7 +29,7 @@ conteneur. Il lance aussi la configuration de l'application SonarQube avec les
 fichiers présents dans le dossier `quality-profile`.
 
 ### Application SonarQube
-![Application SonarQube](img/doc-technique/archi-sonar.png)
+![Application SonarQube](../img/doc-technique/archi-sonar.png)
 
 L'application SonarQube est fournit avec l'ensemble des plugins du Dockerfile.
 
@@ -38,7 +38,7 @@ la base de donnée `JDBC` et `sonar-app.jar`.
 
 ### Contenu partagé
 
-![Contenu partagé](img/doc-technique/archi-partage.png)
+![Contenu partagé](../img/doc-technique/archi-partage.png)
 
 Lors du lancement du conteneur, l'utilisateur choisit un dossier qui sera
 accessible dans un [volume docker](https://docs.docker.com/storage/volumes/)
@@ -211,7 +211,7 @@ utilisé est le point d'entrée de la machine parente de l'image *docker-cat*, i
 s'agit du script `init.bash`.
 
 #### Vue d'ensemble
-![vue d'ensemble](img/doc-technique/vue-ensemble.png)
+![vue d'ensemble](../img/doc-technique/vue-ensemble.png)
 
 
 > **Etape par étape**

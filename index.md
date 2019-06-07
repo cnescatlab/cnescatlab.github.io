@@ -1,61 +1,73 @@
+# [DRAFT]
+*This documentation is not finished yet. There is some incomplete pages and some pages are still in french.*
+
 # Lequal
 
-Le LEQUAL est un laboratoire d'expertise du CNES qui développe un ensemble
-d'outils permettant l'analyse d'un code source afin de s'assurer de sa
-qualité. L'outil principal est CAT (Code Analisys Tool). Basé sur SONARQUBE et
-docker, il permet l'analyse d'un code source et la création de rapports Excel ou
-Word pour permettre une analyse plus complète par un humain. Cet outil peut être
-complété par les différents développements disponibles sur
-[le dépot github](https://github.com/lequal).
+The LEQUAL (for *Laboratoire d'Expertise QUAlité Logiciel*) is a CNES laboratory that 
+create some tools to analyse code and verify its quality. All the projects are available
+in their [repo](https://github.com/lequal).
 
-CAT est capable de réaliser une analyse de code sur les langages suivants:
 
+## Docker CAT - Code Analysis Tools
+The main tool of this repo is Docker-CAT (Code Analysis Tool). Docker-CAT is the docker version of
+CAT, a tool used at CNES.
+
+Docker-CAT is based on SonarQube and upgraded with some tools of this repo so you 
+can do some code analysis and verify the quality of your code. Docker-CAT also include
+[sonar-cnes-report](https://github.com/lequal/sonar-cnes-report) so you can export
+all results in docx, excel, markdown or csv.
+
+Docker cat can analyse
 - C++
 - Java
 - Python
-- Web (HTML, JavaScript, TypeScript, PHP, etc.)
+- Web languages (HTML, JavaScript, TypeScript, PHP, etc.)
 
-[En savoir plus sur CAT](cat) -
-[Installation / Utilisation de CAT](how-to-use-cat) -
-[Guide technique](tech-guide)
+[More about CAT](CAT/cat) -
+[Install and use  CAT](CAT/how-to-use-cat) -
+[Technical guide](CAT/tech-guide)
 
-
-# Codes présents sur le dépot
-Le tableau ci-dessous shematise les relations entre les codes présents sur le dépot.
-
-Le projet [sonar-cnes-report](https://github.com/lequal/sonar-cnes-report) 
-fonctionne de manière indépendante à docker-cat. Même si docker-cat inclut 
-cet outil, il est possible de télécharger 
-[sonar-cnes-report](https://github.com/lequal/sonar-cnes-report) et de
-l'utiliser sans avoir à installer docker-cat sur la machine. Ce projet permet
-d'exporter les résultats d'une analyse de code depuis Sonarqube vers un
-fichier excel et/ou docx.
-
-Excepté les plugins listés ci-dessous, les plugins sonarqube permettent 
-de prendre en charge plus de langages lors des analyses de code, 
-referez vous au readme de ces plugins pour en savoir plus.
-
-- [sonar-cnes-scan-plugin](https://github.com/lequal/sonar-cnes-scan-plugin)
-permet d'ajouter une interface graphique permettant de lancer une analyse
-de code.
-- [sonar-cnes-export-plugin](https://github.com/lequal/sonar-cnes-export-plugin)
-permet d'exporter les règles utilisées pour l'analyse de code.
+### Tools included in Docker-CAT
 
 <table>
-<tr><th colspan='5'><a href="https://github.com/lequal/docker-cat">DOCKER-CAT</a></th></tr>
-<tr>
-    <td><table>
-        <tr><th>Sonarqube</th></tr>
-        <tr><td><a href="https://github.com/lequal/sonar-cnes-scan-plugin">sonar-cnes-scan-plugin</a></td></tr>
-        <tr><td><a href="https://github.com/lequal/sonar-cnes-export-plugin">sonar-cnes-export-plugin</a></td></tr>
-        <tr><td><a href="https://github.com/lequal/sonar-frama-c-plugin">sonar-frama-c-plugin</a></td></tr>
-        <tr><td><a href="https://github.com/lequal/sonar-icode-cnes-plugin">sonar-icode-cnes-plugin</a></td></tr>
-        <tr><td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-python-plugin</a></td></tr>
-        <tr><td><a href="https://github.com/lequal/sonar-shellcheck-plugin">sonar-shellcheck-plugin</a></td></tr>
-        <tr><td><a href="https://github.com/lequal/sonar-cnes-cxx-plugin">sonar-cnes-cxx-plugin</a></td></tr>
-    </table></td>
-    <td><table>
-        <tr><td><a href="https://github.com/lequal/sonar-cnes-report">sonar-cnes-report</a><br><em>Fonctionne aussi sans docker-cat</em></td></tr>
-    </table></td>
-</tr>
+<tr><th colspan='2'>DOCKER-CAT</th></tr>
+        <tr><td>Sonarqube 6.7.4 (LTS)</th>
+        <td><a href="https://github.com/lequal/sonar-cnes-scan-plugin">sonar-cnes-scan-plugin</a><br>
+        <em>Add a new UI in sonar to start code Analysis with CNES guidelines.</em></td></tr>
+        <tr><td><a href="https://github.com/lequal/sonar-cnes-export-plugin">sonar-cnes-export-plugin</a><br>
+        <em>Let you export rules checked by sonar-cnes-scan-plugin.</em></td>
+        <td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-python-plugin</a><br />
+        <em>Add possibility to analyse Python code.</em></td></tr>
+        <tr><td><a href="https://github.com/lequal/sonar-cnes-report">sonar-cnes-report</a>
+        <br><em>Let you generate some reports. <br> Can be used as sonar-plugin or in command line.</em></td>
+        <td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-cxx-plugin</a><br>
+        <em>Let you analyse C/C++ code.</em></td></tr>
+        <tr colspan="2"><td>And other tools...<br />
+        <em>There is also some other tools, but not from lequal. You can get complete list  <a href="https://github.com/lequal/docker-cat">here</a>.</em></td></tr>
+
 </table>
+
+## Other tools available in the repo
+
+### i-CodeCNES and icode-cnes-plugin
+i-CodeCNES is an eclipse Plugin that let you check Fortran 77, Fortran 90 and shell code. It can be combined with
+icode-cnes-plugin to export issues in SonarQube.
+
+Download and documentation: 
+[i-CodeCNES](https://github.com/lequal/i-CodeCNES) -
+[sonar-icode-cnes-plugin](https://github.com/lequal/sonar-icode-cnes-plugin)
+
+### SonarQube Plugins
+* sonar-cnes-scan-plugin
+* sonar-frama-c-plugin
+* sonar-cnes-python-plugin
+* sonar-icode-cnes-plugin
+* sonar-cnes-python-plugin
+* sonar-shellcheck-plugin
+* sonar-cnes-export-plugin
+* sonar-cnes-cxx-plugin
+* sonar-cnes-report
+
+### Other tools
+* polyspace-report2excel
+* cnes-pylint-extension

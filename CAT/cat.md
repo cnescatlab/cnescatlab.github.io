@@ -18,7 +18,7 @@ Son utilisation se fait de la manière suivante:
   l'interface web, à l'aide de [cnes-report](https://github.com/lequal/sonar-cnes-report)
 
 Le schéma ci-dessous résume l'utilisation de CAT.
-![Résumé de CAT](img/cat_summary.png)
+![Résumé de CAT](../img/cat_summary.png)
 
 
 ## Architecture de SonarQube
@@ -37,13 +37,13 @@ majeurs, à savoir:
 Cela est résumé sur le schéma ci-dessous (extrait de la
 [documentation sonarqube](https://docs.sonarqube.org/display/SONAR/Architecture+and+integration))
 
-![Résumé de SonarQube](img/SonarArchiArchi.png)
+![Résumé de SonarQube](../img/SonarArchiArchi.png)
 
 ## Notions de qualité dans SonarQube
 Cette section présente un résumé visuel des concepts clés introduits par
 SonarQube. Ces termes doivent être compris et assimilés afin de pouvoir
 interpréter convenablement les résultats.
-![Notions SonarQube](img/sonarqube_quality_explanation.png)
+![Notions SonarQube](../img/sonarqube_quality_explanation.png)
 
 ## Aller plus loin
 [Installer et utiliser CAT](how-to-use-cat)
