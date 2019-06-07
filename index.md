@@ -56,7 +56,7 @@ Download and documentation:
 
 ### sonar-cnes-report
 ![sonar-cnes-report](img/cnes-report.png)
-sonar-cnes-report is a tool which can extract issues and metrics from a Sonarqube project. It can be used as SonarQube plugin
+sonar-cnes-report is a tool which can extract issues and metrics from a Sonarqube project and export them in **docx, excel, csv or markdown**. It can be used as SonarQube plugin
 or (if you can't install plugins for example) you can use JAR in standalone and specify a distant Sonarqube instance. 
 sonar-cnes-report use sonar API and works with sonarqube 6.7 LTS.
 
