@@ -9,6 +9,7 @@ in their [repo](https://github.com/lequal).
 
 
 ## Docker CAT - Code Analysis Tools
+![Docker-CAT](img/docker-cat.png)
 The main tool of this repo is Docker-CAT (Code Analysis Tool). Docker-CAT is the docker version of
 CAT, a tool used at CNES.
 
@@ -23,9 +24,6 @@ Docker cat can analyse
 - Python
 - Web languages (HTML, JavaScript, TypeScript, PHP, etc.)
 
-[More about CAT](CAT/cat) -
-[Install and use  CAT](CAT/how-to-use-cat) -
-[Technical guide](CAT/tech-guide)
 
 ### Tools included in Docker-CAT
 
@@ -41,7 +39,7 @@ Docker cat can analyse
         <br><em>Let you generate some reports. <br> Can be used as sonar-plugin or in command line.</em></td>
         <td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-cxx-plugin</a><br>
         <em>Let you analyse C/C++ code.</em></td></tr>
-        <tr colspan="2"><td>And other tools...<br />
+        <tr><td colspan="2">And other tools...<br />
         <em>There is also some other tools, but not from lequal. You can get complete list  <a href="https://github.com/lequal/docker-cat">here</a>.</em></td></tr>
 </table>
 
