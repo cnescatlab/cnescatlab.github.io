@@ -9,6 +9,7 @@ in their [repo](https://github.com/lequal).
 
 
 ## Docker CAT - Code Analysis Tools
+[Docker-CAT on Github (install / download)](https://github.com/lequal/docker-cat)
 ![Docker-CAT](img/docker-cat.png)
 The main tool of this repo is Docker-CAT (Code Analysis Tool). Docker-CAT is the docker version of
 CAT, a tool used at CNES.
@@ -36,7 +37,7 @@ Docker cat can analyse
         <td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-python-plugin</a><br />
         <em>Add possibility to analyse Python code.</em></td></tr>
         <tr><td><a href="https://github.com/lequal/sonar-cnes-report">sonar-cnes-report</a>
-        <br><em>Let you generate some reports. <br> Can be used as sonar-plugin or in command line.</em></td>
+        <br><em>Let you generate some reports. <br> Can be used as sonar-plugin or throught command line.</em></td>
         <td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-cxx-plugin</a><br>
         <em>Let you analyse C/C++ code.</em></td></tr>
         <tr><td colspan="2">And other tools...<br />
@@ -54,16 +55,19 @@ Download and documentation:
 [sonar-icode-cnes-plugin](https://github.com/lequal/sonar-icode-cnes-plugin)
 
 ### SonarQube Plugins
-* sonar-cnes-scan-plugin
-* sonar-frama-c-plugin
-* sonar-cnes-python-plugin
-* sonar-icode-cnes-plugin
-* sonar-cnes-python-plugin
-* sonar-shellcheck-plugin
-* sonar-cnes-export-plugin
-* sonar-cnes-cxx-plugin
-* sonar-cnes-report
+Here there is a list of plugins created at Lequal for SonarQube
+
+* [sonar-cnes-scan-plugin](https://github.com/lequal/sonar-cnes-scan-plugin) 
+* [sonar-frama-c-plugin](https://github.com/lequal/sonar-frama-c-plugin) 
+* [sonar-cnes-python-plugin](https://github.com/lequal/sonar-cnes-python-plugin) 
+* [sonar-icode-cnes-plugin](https://github.com/lequal/sonar-icode-cnes-plugin) 
+* [sonar-cnes-python-plugin](https://github.com/lequal/sonar-cnes-python-plugin) 
+* [sonar-shellcheck-plugin](https://github.com/lequal/sonar-shellcheck-plugin) 
+* [sonar-cnes-export-plugin](https://github.com/lequal/sonar-cnes-export-plugin) 
+* [sonar-cnes-cxx-plugin](https://github.com/lequal/sonar-cnes-cxx-plugin) 
+* [sonar-cnes-report](https://github.com/lequal/sonar-cnes-report) 
+
 
 ### Other tools
-* polyspace-report2excel
-* cnes-pylint-extension
+* [polyspace-report2excel](https://github.com/lequal/polyspace-report2excel) 
+* [cnes-pylint-extension](https://github.com/lequal/cnes-pylint-extension) 
