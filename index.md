@@ -54,20 +54,14 @@ Download and documentation:
 [i-CodeCNES](https://github.com/lequal/i-CodeCNES) -
 [sonar-icode-cnes-plugin](https://github.com/lequal/sonar-icode-cnes-plugin)
 
-### SonarQube Plugins
-Here there is a list of plugins created at Lequal for SonarQube
+### sonar-cnes-report
+![sonar-cnes-report](img/cnes-report.png)
+sonar-cnes-report is a tool which can extract issues and metrics from a Sonarqube project. It can be used as SonarQube plugin
+or (if you can't install plugins for example) you can use JAR in standalone and specify a distant Sonarqube instance. 
+sonar-cnes-report use sonar API and works with sonarqube 6.7 LTS.
 
-* [sonar-cnes-scan-plugin](https://github.com/lequal/sonar-cnes-scan-plugin) 
-* [sonar-frama-c-plugin](https://github.com/lequal/sonar-frama-c-plugin) 
-* [sonar-cnes-python-plugin](https://github.com/lequal/sonar-cnes-python-plugin) 
-* [sonar-icode-cnes-plugin](https://github.com/lequal/sonar-icode-cnes-plugin) 
-* [sonar-cnes-python-plugin](https://github.com/lequal/sonar-cnes-python-plugin) 
-* [sonar-shellcheck-plugin](https://github.com/lequal/sonar-shellcheck-plugin) 
-* [sonar-cnes-export-plugin](https://github.com/lequal/sonar-cnes-export-plugin) 
-* [sonar-cnes-cxx-plugin](https://github.com/lequal/sonar-cnes-cxx-plugin) 
-* [sonar-cnes-report](https://github.com/lequal/sonar-cnes-report) 
-
+[Repo](https://github.com/lequal/sonar-cnes-report) - [Releases](https://github.com/lequal/sonar-cnes-report/releases)
 
 ### Other tools
-* [polyspace-report2excel](https://github.com/lequal/polyspace-report2excel) 
-* [cnes-pylint-extension](https://github.com/lequal/cnes-pylint-extension) 
+* [polyspace-report2excel](https://github.com/lequal/polyspace-report2excel): _Extract tables from polyspace report and copy them in excel file._
+* [cnes-pylint-extension](https://github.com/lequal/cnes-pylint-extension) : _Add more checkers to pylint with CNES guidelines._
