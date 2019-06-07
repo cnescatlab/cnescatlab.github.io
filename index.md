@@ -31,7 +31,7 @@ Docker cat can analyse
 
 <table>
 <tr><th colspan='2'>DOCKER-CAT</th></tr>
-        <tr><td>Sonarqube 6.7.4 (LTS)</th>
+        <tr><td>Sonarqube 6.7.4 (LTS)</th><
         <td><a href="https://github.com/lequal/sonar-cnes-scan-plugin">sonar-cnes-scan-plugin</a><br>
         <em>Add a new UI in sonar to start code Analysis with CNES guidelines.</em></td></tr>
         <tr><td><a href="https://github.com/lequal/sonar-cnes-export-plugin">sonar-cnes-export-plugin</a><br>
@@ -44,7 +44,6 @@ Docker cat can analyse
         <em>Let you analyse C/C++ code.</em></td></tr>
         <tr colspan="2"><td>And other tools...<br />
         <em>There is also some other tools, but not from lequal. You can get complete list  <a href="https://github.com/lequal/docker-cat">here</a>.</em></td></tr>
-
 </table>
 
 ## Other tools available in the repo
