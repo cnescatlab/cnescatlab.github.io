@@ -25,6 +25,11 @@ Docker cat can analyse
 - Python
 - Web languages (HTML, JavaScript, TypeScript, PHP, etc.)
 
+When docker-CAT is started, every tasks can be done with the web interface. So it can be easily used by anybody. Also
+if you open the sonarqube port (default:9000) in your firewall it can be used by any computer. (Users should also have
+an access to the shared directory).
+
+More information in the [user guide](CAT/how-to-use-cat).
 
 ### Tools included in Docker-CAT
 

@@ -1,158 +1,109 @@
-# Guide d'utilisation de CAT
-Ce guide explique comment installer et utiliser CAT. Pour une compatibilité
-maximale il est recommandé d'utiliser un système linux.
+# CAT - User guide
+This guide will explain how to install and start Docker-CAT. Docker-CAT may work better on linux systems.
 
-## Installation rapide
-Vous pouvez vous référer au fichier readme du dépot
-[docker-cat](https://github.com/lequal/docker-cat) pour installer et exécuter
-CAT rapidement.
+## Quick setup
+For a quick setup, you can read the
+[readme file](https://github.com/lequal/docker-cat) from the official repo.
 
-## Installation personnalisée
-Cette section décrit la procédure d'installation de manière plus complète afin
-d'adapter l'installation de CAT vos besoins.
+## Complete setup
 
-### Prérequis
-Avant de pouvoir utiliser CAT vous devez avoir installé Docker CE sur votre
-machine et vous devez avoir lancé le démon docker.
+### Pre-requisite
+Before using Docker-CAT please check that docker is installed and running.
 
-De plus votre compte utilisateur doit avoir accès au groupe `docker` de votre
-machine ou être `root` sur la machine.
+- [Docker documentation](https://docs.docker.com/install/)
+- Start docker daemon: `sudo service docker start`
 
-- [Documentation sur l'installation de docker](https://docs.docker.com/install/)
-- Pour lancer le démon docker: `sudo service docker start`
-- Pour voir si votre compte utilisateur est membre du groupe docker:
-  `cat /etc/groups | grep docker` doit indiquer `docker:<gid-docker>:x:<votre-compte>`
+### Getting docker image
 
-### Récupération de l'image
+#### From the docker hub
+The easiest way to get Docker-CAT is to clone Docker image from docker hub with `docker pull lequal/docker-cat`
 
-#### Via le Docker-Hub
-Depuis n'importe quel dossier, exécutez la commande `docker pull lequal/docker-cat`
+#### Build the image yourself
+If needed, you can build the image yourself. If you edit the Docker-CAT image feel free to create a pull request !
 
-#### Refaire un build complet
-Si vous le souhaitez vous pouvez réaliser le build vous même à partir des sources.
-Pour cela, clonez le dépot GitHub puis exécutez un build.
+To build your own image, just clone the repo and use `docker build`.
 ```
 git clone https://github.com/lequal/docker-cat
 cd docker-cat
 docker build -t <tag> .
 ```
 
-### Lancement de l'image
-#### Identification des droits
-L'image docker-cat necessite préalablement d'identifier les fichiers qui doivent
-être accessibles (ou non) par SonarQube. Ainsi il faut identifier:
+### Configure & start Docker-CAT
+Before starting Docker-CAT you must identify the shared folder and files that should be accessible by SonarQube.
 
-- Le dossier qui devra être accessible par docker
-- Les fichiers accessibles par SonarQube
+#### Choose the shared folder
+The docker have root access to the shared folder. It is recommended to use a dedicated folder.
 
-#### Choix du dossier partagé avec Docker
-Le conteneur docker bénéficie de droits **root** sur les fichiers qui lui sont
-partagé. Il faut donc être précis et privilégier éventuellement de ne laisser
-qu'un seul dossier "*Workspace*" pour son utilisation.
+#### Autorize SonarQube to access files inside the shared folder
+The `ALLOWED_GROUPS` variable let you define a list of GID (Group ID) associated with the `sonarqube` user. All files 
+inside the shared folder should be accessible by at least one of this group to run code analysis.
 
-#### Fichiers accessibles par SonarQube
-La variable `ALLOWED_GROUPS` permet de définir une liste de GID (identifiant de
-groupe utilisateur) auquel appartiendra l'utilisateur `sonarqube` sur le
-conteneur.
-
-Voici la procédure pour identifier les GID à autoriser:
-- Lister les fichiers que SonarQube doit analyser.
-- Avec la commande `ls -l` identifier l'appartenance de ces fichiers au niveau
-de la colonne groupes
-- Pour chaque groupe, identifier le GID correspondant via `cat /etc/groups` ou
+To find GID in your case, you can follow these steps:
+- Use `ls -l` to get group associated with each file.
+- For every groups, you can get the GID with `cat /etc/groups` or
 `getent <group_name> | cut -d : -f3`
 
-Enfin un fois les GID identifiés ajouter `-e ALLOWED_GROUPS="<GID1>;<GID2>;<...>"`
-lors du lancement du conteneur.
+Once you know all GID, add `-e ALLOWED_GROUPS="<GID1>;<GID2>;<...>"` in the `docker start` command.
 
-#### Lancement du conteneur.
-Pour lancer le conteneur il suffit de taper:
+#### Start Docker-CAT
+Now, you just have to use this command to get started ! Just replace `<shared_folder>` and `<GID>`.
 ```
-docker run -v <dossier_partage>:/media/Sf_Shared:rw -p 9000:9000 -p 9001:9001 -e ALLOWED_GROUPS="<GID>" lequal/docker-cat:latest
+docker run -v <shared_folder>:/media/Sf_Shared:rw -p 9000:9000 -p 9001:9001 -e ALLOWED_GROUPS="<GID>" lequal/docker-cat:latest
 ```
-Si le lancement du conteneur à fonctionné vous pouvez vous rendre sur
+If everything is ok, you can test Docker-CAT at 
 [http://localhost:9000](http://localhost:9000/)
 
-Plus d'informations sur cette commande sont disponibles sur le
-[guide technique](/tech-guide)
+For more information about this command, you can check 
+[the technical technique](CAT/tech-guide)
 
-#### Utilisation de SonarQube
+## Using Docker-CAT
+To use interact with Docker-CAT, you have to use the SonarQube web interface. Docker-CAT includes some plugins in 
+SonarQube.
 
-**ATTENTION:** La base de donnée par défaut est une base de donnée éphémère.
-Pensez à bien exporter vos analyses ou à lier une base de donnée à Docker
-(cf *Lier une base de données à Docker* plus loin).
+**WARNING**: if you want persistent data, be sure to link a database (see the corresponding section).
+After all analysis some reports are generated in the shared folders. Even if you lose SonarQube database, you will not
+loose analysis results.
 
-Rendez vous sur l'interface web depuis un navigateur via l'url
-[http://localhost:9000](http://localhost:9000/) puis connectez-vous.
+To run an analysis, copy your code in shared folder then:
 
-Par défaut l'utilisateur est `admin` et le mot de passe est `admin`.
+- Open [http://localhost:9000](http://localhost:9000/) and log in.
+    - Default login: User = `admin` / Password = `admin`
+    - If you use Docker-CAT on a server, you should change the password !
+- Click on *More -> CNES Analisys*.
+- Fill the form:
+    - **Project key**: Key for sonar, must be unique (one per project)
+    - **Workspace**: the path to your project (relative to shared folder)
+        - E.g.: your project is saved on `/home/user/docker/organization/project`, shared folder is `/home/user/docker`,
+        you must write `organization/project`
+    - **Sources**: path to the source, relative to project root.
+    - **sonar-project.properties**: For advanced usage you can edit this file. For java project you can uncomment some
+    lines in the default file. (Guideline are directly visible in the form)
+- Start analysis !
+- Check results on the Sonar web interface, on the report generated in shared folders or by using *More -> CNES Report*
+link in the menu.
 
-Vous avez désormais accès à la page d'analyse via *More -> CNES Analisys*.
-
-Il vous suffit de remplir le formulaire à disposition et de lancer l'analyse via
-le bouton en bas de page. Voici quelques précisions sur les champs du formulaire:
-
-- **Project key** doit être unique à chaque projet, si vous analysez un projet
-  déjà analysé vous devez utiliser le même **Project key** sinon vous devez le
-  changer.
-- **Workspace** doit être rempli avec un chemin relatif au dossier partagé avec
-  Docker, par exemple si votre projet se trouve dans
-  `/home/user/docker/entreprise/projet` et si vous partagez `/home/user/docker`,
-  dans ce cas là renseignez `entreprise/projet`
-- **Sources** doit être rempli avec un chemin relatif à la racine du **projet**
-- **sonar-project.properties** n'a pas besoin d'être modifié sauf pour une
-  utilisation spécifique de SonarQube. Dans la plupart des cas la seule
-  modification de ce champ sera de dé-commenter la ligne sonar.java.binaries.
-
-
-Une fois l'analyse faite retournez sur la page d'accueil de SonarQube pour voir
-les résultats ou exportez les via *More -> CNES Report*
-
-#### Utilisation type de docker-cat
-##### Sur un poste utilisateur
-L'image docker-cat peut être utilisé directement sur un poste utilisateur.
-C'est principalement pour cette utilisation par les responsables qualités qu'a
-été réalisée cette image. Dans ce cas d'utilisation il suffit simplement de
-placer les projets à analyser dans le dossier partagé avec Docker.
-
-##### Sur un serveur
-Contrairement à **SonarQube**, le CAT n'est pas prévue pour une utilisation en
-intégration continue. Par conséquence, dans une chaine d'intégration continue
-certains plugins comme cnes-scan ne sont pas exploitables.
-
-Dans le cas de l'utilisation sur un serveur, il faut monter un dossier partagé
-(en NFS par exemple) puis ajouter chaque utilisateur autorisé dans la variable
-`ALLOWED_GROUPS` au lancement du docker-cat.
-
-#### Lier une base de donnée à Docker
-L'image docket-cat inclut nativement une base de donnée nommée *derby*. Il s'agit
-d'une petite base de donnée qui ne peut supporter que quelques méga-octets de
-charge, de plus, celle-ci est éphémère. A chaque arrêt du docker, la base de
-donnée est vidée.
-
-Pour obtenir une persistance des données ou monter en charge il faut joindre une
-base de donnée à l'image docker-cat.
-
-Si vous avez déjà une base de donnée il suffit d'ajouter les variables
-d'environnement suivantes au lancement du conteneur:
+#### Link docker cat to a database
+If you already have a database you can just set these environment variables on docker:
 
 - `SONARQUBE_JDBC_USERNAME`
 - `SONARQUBE_JDBC_PASSWORD`
 - `SONARQUBE_JDBC_URL`
 
-Si vous n'avez pas de base de données, vous pouvez utiliser le fichier
-`docker-compose.yml` du [dépot git](https://github.com/lequal/docker-cat) après
-avoir installé docker-compose. Il vous suffira simplement d’exécuter
-`docker-compose up` dans le dossier où se trouve `docker-compose.yml`.
-
-Deux conteneur seront lancés, **docker-cat** et un conteneur **pgsql**.
+In your `docker start` command need to add `-e SONARQUBE_JDBC_USERNAME=value -e SONARQUBE_JDBC_PASSWORD=value -e SONARQUBE_JDBC_URL=value`
 
 
-#### Ajouter un plugin
-Pour ajouter un plugin vous devez modifier `Dockerfile` et ajouter le
-téléchargement de votre plugin vers `/opt/sonarqube/extensions/plugins`.
+If you did not have database, you can use docker to create your database. Just download the 
+`docker-compose.yml` from [the repo](https://github.com/lequal/docker-cat), install docker-compose and type
+`docker-compose up` in your terminal. It will start Docker-CAT and PgSQL
 
-Dans ce cas là référez vous à la section *Refaire un build complet*
 
-## Aller plus loin
-[Guide technique](tech-guide)
+
+#### Add plugin
+There is 2 ways to add plugin:
+- Add plugin in the docker file and build (see "Build the image yourself" above)
+- Copy plugin in docker and restart:
+    - `docker cp <plugin>.jar <docker_image_name>:/opt/sonarqube/extensions/plugins/`
+    - `docker restart <docker_image_name>`
+
+## See also
+[Technical guide](tech-guide)
