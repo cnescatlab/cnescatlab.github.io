@@ -54,7 +54,7 @@ If everything is ok, you can test Docker-CAT at
 [http://localhost:9000](http://localhost:9000/)
 
 For more information about this command, you can check 
-[the technical technique](CAT/tech-guide)
+[the technical technique](tech-guide)
 
 ## Using Docker-CAT
 To use interact with Docker-CAT, you have to use the SonarQube web interface. Docker-CAT includes some plugins in 
