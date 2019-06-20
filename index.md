@@ -1,5 +1,5 @@
 # [DRAFT]
-*This documentation is not finished yet. There is some incomplete pages and some pages are still in french.*
+*This GitHub Page is still a Draft. It can be incomplete.*
 
 # Lequal
 
@@ -38,7 +38,7 @@ More information in the [user guide](CAT/how-to-use-cat).
         <td><a href="https://github.com/lequal/sonar-cnes-scan-plugin">sonar-cnes-scan-plugin</a><br>
         <em>Add a new UI in sonar to start code Analysis with CNES guidelines.</em></td></tr>
         <tr><td><a href="https://github.com/lequal/sonar-cnes-export-plugin">sonar-cnes-export-plugin</a><br>
-        <em>Let you export rules checked by sonar-cnes-scan-plugin.</em></td>
+        <em>Let you export sonarqube configuration.</em></td>
         <td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-python-plugin</a><br />
         <em>Add possibility to analyse Python code.</em></td></tr>
         <tr><td><a href="https://github.com/lequal/sonar-cnes-report">sonar-cnes-report</a>
@@ -65,8 +65,14 @@ sonar-cnes-report is a tool which can extract issues and metrics from a Sonarqub
 or (if you can't install plugins for example) you can use JAR in standalone and specify a distant Sonarqube instance. 
 sonar-cnes-report use sonar API and works with sonarqube 6.7 LTS.
 
+*sonar-cnes-report can also be used with SonarCloud and SonarQube 7+.*
+
 [Repo](https://github.com/lequal/sonar-cnes-report) - [Releases](https://github.com/lequal/sonar-cnes-report/releases)
 
 ### Other tools
 * [polyspace-report2excel](https://github.com/lequal/polyspace-report2excel): _Extract tables from polyspace report and copy them in excel file._
 * [cnes-pylint-extension](https://github.com/lequal/cnes-pylint-extension) : _Add more checkers to pylint with CNES guidelines._
+* [sonar-frama-c-plugin](https://github.com/lequal/sonar-frama-c-plugin) : _Let you import FRAMA-C results in sonar_
+* [sonar-shellcheck-plugin](https://github.com/lequal/sonar-shellcheck-plugin) : _Let you import SHECLLCHECK results in sonar_
+* [sonar-cnes-cxx-plugin](https://github.com/lequal/sonar-cnes-cxx-plugin) : _Execute C analysis tool and import results in Sonar_
+

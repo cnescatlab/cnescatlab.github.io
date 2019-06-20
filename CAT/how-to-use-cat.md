@@ -53,8 +53,6 @@ docker run -v <shared_folder>:/media/Sf_Shared:rw -p 9000:9000 -p 9001:9001 -e A
 If everything is ok, you can test Docker-CAT at 
 [http://localhost:9000](http://localhost:9000/)
 
-For more information about this command, you can check 
-[the technical technique](tech-guide)
 
 ## Using Docker-CAT
 To use interact with Docker-CAT, you have to use the SonarQube web interface. Docker-CAT includes some plugins in 
@@ -82,7 +80,7 @@ To run an analysis, copy your code in shared folder then:
 - Check results on the Sonar web interface, on the report generated in shared folders or by using *More -> CNES Report*
 link in the menu.
 
-#### Link docker cat to a database
+#### Link docker CAT to a database
 If you already have a database you can just set these environment variables on docker:
 
 - `SONARQUBE_JDBC_USERNAME`
@@ -105,5 +103,3 @@ There is 2 ways to add plugin:
     - `docker cp <plugin>.jar <docker_image_name>:/opt/sonarqube/extensions/plugins/`
     - `docker restart <docker_image_name>`
 
-## See also
-[Technical guide](tech-guide)
