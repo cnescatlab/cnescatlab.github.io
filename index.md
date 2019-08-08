@@ -1,9 +1,6 @@
-# [DRAFT]
-*This GitHub Page is still a Draft. It can be incomplete.*
-
 # Lequal
 
-The LEQUAL (for *Laboratoire d'Expertise QUAlité Logiciel*) is a CNES laboratory that 
+The LEQUAL (for *Laboratoire d'Expertise QUAlité Logiciel*) is a CNES laboratory that
 create some tools to analyse code and verify its quality. All the projects are available
 in their [repo](https://github.com/lequal).
 
@@ -14,7 +11,7 @@ in their [repo](https://github.com/lequal).
 The main tool of this repo is Docker-CAT (Code Analysis Tool). Docker-CAT is the docker version of
 CAT, a tool used at CNES.
 
-Docker-CAT is based on SonarQube and upgraded with some tools of this repo so you 
+Docker-CAT is based on SonarQube and upgraded with some tools of this repo so you
 can do some code analysis and verify the quality of your code. Docker-CAT also include
 [sonar-cnes-report](https://github.com/lequal/sonar-cnes-report) so you can export
 all results in docx, excel, markdown or csv.
@@ -55,14 +52,14 @@ More information in the [user guide](CAT/how-to-use-cat).
 i-CodeCNES is an eclipse Plugin that let you check Fortran 77, Fortran 90 and shell code. It can be combined with
 icode-cnes-plugin to export issues in SonarQube.
 
-Download and documentation: 
+Download and documentation:
 [i-CodeCNES](https://github.com/lequal/i-CodeCNES) -
 [sonar-icode-cnes-plugin](https://github.com/lequal/sonar-icode-cnes-plugin)
 
 ### sonar-cnes-report
 ![sonar-cnes-report](img/cnes-report.png)
 sonar-cnes-report is a tool which can extract issues and metrics from a Sonarqube project and export them in **docx, excel, csv or markdown**. It can be used as SonarQube plugin
-or (if you can't install plugins for example) you can use JAR in standalone and specify a distant Sonarqube instance. 
+or (if you can't install plugins for example) you can use JAR in standalone and specify a distant Sonarqube instance.
 sonar-cnes-report use sonar API and works with sonarqube 6.7 LTS.
 
 *sonar-cnes-report can also be used with SonarCloud and SonarQube 7+.*
@@ -75,4 +72,3 @@ sonar-cnes-report use sonar API and works with sonarqube 6.7 LTS.
 * [sonar-frama-c-plugin](https://github.com/lequal/sonar-frama-c-plugin) : _Let you import FRAMA-C results in sonar_
 * [sonar-shellcheck-plugin](https://github.com/lequal/sonar-shellcheck-plugin) : _Let you import SHECLLCHECK results in sonar_
 * [sonar-cnes-cxx-plugin](https://github.com/lequal/sonar-cnes-cxx-plugin) : _Execute C analysis tool and import results in Sonar_
-
