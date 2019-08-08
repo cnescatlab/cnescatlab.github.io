@@ -1,7 +1,7 @@
 # Docker-CAT - technical guide
 
 ## Tools included
-To see all tools included, you can directly check the 
+To see all tools included, you can directly check the
 [Dockerfile](https://github.com/lequal/docker-cat/blob/master/Dockerfile).
 
 
@@ -27,7 +27,7 @@ SonarQube user to acces the Shared Folder.
 ### Shared folder
 
 
-When you start the docker, the user must choose a folder that will be accessible in docker (also see: 
+When you start the docker, the user must choose a folder that will be accessible in docker (also see:
 [docker documentation](https://docs.docker.com/storage/volumes/)). This folder should have read/write access.
 
 When this folder is updated by Docker, it will also update folder in the host, so when you stop docker, you will
@@ -35,7 +35,7 @@ not loose the results.
 
 ## Build
 ### Building image
-This docker image is built from the sonarqube image. Then it will install some plugins and scripts. Because 
+This docker image is built from the sonarqube image. Then it will install some plugins and scripts. Because
 it use an official docker image, it's important to rebuild the image to include latest security updates from
 sonarqube.
 
@@ -66,7 +66,7 @@ will be a member of all specified groups.
 
 **About allowed `ALLOWED_GROUPS`**
 In linux, every user have a UID (UserID) and one or more GID(GroupID). Because SonarQube is not run as root
-(and should never be run as root), sonarqube should be in the same group as users that depose code. 
+(and should never be run as root), sonarqube should be in the same group as users that depose code.
 For example if *Alice* (UID=42;GID=1004) depose code on shared folder, Sonarqube have to be a member of group 1004
 to read/update folder.
 
@@ -91,16 +91,12 @@ on "More" > "CNES Analysis"
 
 See also: [Plugin on github](https://github.com/lequal/sonar-cnes-scan-plugin).
 
-### Fonctionnement
-Lorsque l'analyse est lancée, plugin Sonar CNES Scan se charge d'écrire les
-fichiers `sonar-properties` du projet indiqué, puis, ensuite d'ordonner au
-[sonar-scanner](https://github.com/SonarSource/sonar-scanner-cli) de lancer
-l'analyse sur le projet en question.
+### How it works?
+When you start analysis, the CNES-scan plugin will write a `sonar-properties` file
+then execute the [sonar-scanner](https://github.com/SonarSource/sonar-scanner-cli).
 
-Au sein du conteneur, des liens symboliques ont été créé dans les différents
-répertoires de l'installation SonarQube afin de correspondre aux paramètres
-attendu par défaut. Par exemple, le répertoire `/opt/sonar` a un lien symbolique
-vers `/opt/sonarqube`, l'actuelle installation de sonarqube.
+In the Docker-CAT image you can found several symbolic links to fit with default
+values of path used by the sonar-scanner.
 
 ![image](../img/doc-technique/utilisation.png)
 ## Arrêt du conteneur
