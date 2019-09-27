@@ -53,7 +53,7 @@ More information in the [user guide](CAT/how-to-use-cat).
 ### Tools included in Docker-CAT
 
 <table><tr><th colspan='2'>DOCKER-CAT</th></tr>
-        <tr><td>Sonarqube 6.7.4 (LTS)</td>
+        <tr><td>Sonarqube 6.7.4 (LTS) and 7.9 (LTS)</td>
         <td><a href="https://github.com/lequal/sonar-cnes-scan-plugin">sonar-cnes-scan-plugin</a><br>
         <em>Add a new UI in sonar to start code Analysis with CNES guidelines.</em></td></tr>
         <tr><td><a href="https://github.com/lequal/sonar-cnes-export-plugin">sonar-cnes-export-plugin</a><br>
