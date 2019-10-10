@@ -28,8 +28,8 @@ Approximately, it works as follows :
 The following picture sums up the use of Docker-CAT.
 ![Cat summary](../img/cat_summary.png)
 
-More details in the [user guide](tools/how-to-use-cat).
-More technical details in the [technical guide](tools/cat-tech-guide).
+More details in the [user guide](how-to-use-cat).
+More technical details in the [technical guide](cat-tech-guide).
 
 ### Tools included in Docker-CAT
 
