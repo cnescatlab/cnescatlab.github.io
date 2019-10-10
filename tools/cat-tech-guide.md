@@ -6,8 +6,8 @@ To see all tools included, you can directly check the
 
 
 ## Architecture
-### Structure générale
-![Architecture globale](../img/doc-technique/archi-globale.png)
+### General structure
+![Global Architecture](../img/doc-technique/archi-globale.png)
 
 There is 3 parts in the Docker-CAT:
 - The *boot*: it contains configuration files and some scripts, it's located at `/tmp` in docker.
@@ -37,7 +37,7 @@ not loose the results.
 ### Building image
 This docker image is built from the sonarqube image. Then it will install some plugins and scripts. Because
 it use an official docker image, it's important to rebuild the image to include latest security updates from
-sonarqube.
+SonarQube.
 
 
 
@@ -46,7 +46,7 @@ If you want to add plugins into Docker-CAT, you can copy your jar file into `/op
 After that, if docker is running, restart it with `docker restart`
 
 ## Start docker
-### Commandes
+### Commands
 At first run, you can start docker with:
 ```
 docker run \
@@ -99,22 +99,17 @@ In the Docker-CAT image you can found several symbolic links to fit with default
 values of path used by the sonar-scanner.
 
 ![image](../img/doc-technique/utilisation.png)
-## Arrêt du conteneur
-### Commandes
-Une fois le conteneur lancé, il peut-être arrêté grâce à la commande
-`docker stop <nom_conteneur>` et redémarré avec la commande
-`docker restart <nom_conteneur>`.
 
-> **Rappel :** Pour pouvoir lancer les commandes docker, il faut que le docker deamon soit lancé (*en utilisant en `root` la commande `systemctl start docker`*). Il est aussi nécessaire qui lance le conteneur soit `root` ou appartienne au groupe `docker` (**attention**, faire partit du groupe `docker` revient à être `root` sur l'hôte).
+## Stop container
+Once the container is started, it could be stopped using `docker stop <container_name>`
+and restarted with `docker restart <container_name>`.
 
-### Persistance des données
-L'arrêt simple du conteneur n'en supprime pas son contenu, ainsi lorsqu'il est
-relancé grâce à la commande `restart` son état est identique à celui dans lequel
- il était au moment du `stop`.
+> **Reminder :** In order to launch docker commands, the docker daemon has to be started (*as `root` using `systemctl start docker`*).
+> You also have to start the container with `root` or with user that belongs to the `docker` group (**Watch out !** Belonging to the `docker` group is the same as being `root` on the host).
 
-Cela implique :
-- Que la base de données garde à ce moment là les analyses lancées.
+### Data storage
+Stopping a container does not remove its content, so that when it is restarted (thanks to `docker restart`), it will be in the exact same state than before being stopped.
+Indeed, the database stores the results of your analysis.
 
-## Suppression du conteneur
-Il est possible de supprimer de manière définitive le conteneur (et sa base de
-données) grâce à la commande `docker rm <nom_conteneur>`.
+## Remove the container
+You can permanently remove a container (and its content/data) using `docker rm <container_name>`.

@@ -11,12 +11,12 @@ For a quick setup, you can read the
 Before using Docker-CAT please check that docker is installed and running.
 
 - [Docker documentation](https://docs.docker.com/install/)
-- Start docker daemon: `sudo service docker start`
+- Start docker daemon: `sudo systemctl start docker`
 
 ### Getting docker image
 
 #### From the docker hub
-The easiest way to get Docker-CAT is to clone Docker image from docker hub with `docker pull lequal/docker-cat`
+The easiest way to get Docker-CAT is to retrieve Docker image from docker hub with `docker pull lequal/docker-cat`
 
 #### Build the image yourself
 If needed, you can build the image yourself. If you edit the Docker-CAT image feel free to create a pull request !
@@ -48,19 +48,18 @@ Once you know all GID, add `-e ALLOWED_GROUPS="<GID1>;<GID2>;<...>"` in the `doc
 #### Start Docker-CAT
 Now, you just have to use this command to get started ! Just replace `<shared_folder>` and `<GID>`.
 ```
-docker run -v <shared_folder>:/media/Sf_Shared:rw -p 9000:9000 -p 9001:9001 -e ALLOWED_GROUPS="<GID>" lequal/docker-cat:latest
+docker run -d --name docker-cat -v <shared_folder>:/media/Sf_Shared:rw -p 9000:9000 -p 9001:9001 -e ALLOWED_GROUPS="<GID>" lequal/docker-cat:latest
 ```
-If everything is ok, you can test Docker-CAT at
-[http://localhost:9000](http://localhost:9000/)
+If everything is ok, you can test Docker-CAT at [http://localhost:9000](http://localhost:9000/)
 
 
 ## Using Docker-CAT
-To use interact with Docker-CAT, you have to use the SonarQube web interface. Docker-CAT includes some plugins in
+To interact with Docker-CAT, you have to use the SonarQube web interface. Docker-CAT includes some plugins in
 SonarQube.
 
 **WARNING**: if you want persistent data, be sure to link a database (see the corresponding section).
 
-**TIPS**: After an analisys, docker-CAT generate a report. If you lose it you can generate report again
+**TIPS**: After an analysis, docker-CAT generates a report. If you loose it you can generate the report again
 by selecting "More => CNES Report" in the menu. Then, you can save your report in a safe place.
 
 To run an analysis, copy your code in shared folder then:
