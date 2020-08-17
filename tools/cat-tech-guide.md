@@ -2,7 +2,7 @@
 
 ## Tools included
 To see all tools included, you can directly check the
-[Dockerfile](https://github.com/lequal/docker-cat/blob/master/Dockerfile).
+[Dockerfile](https://github.com/cnescatlab/docker-cat/blob/master/Dockerfile).
 
 
 ## Architecture
@@ -89,7 +89,7 @@ When you start Docker `init.bash` is runned
 To start a code analysis, juste use the cnes-scan plugin. For that, open the web interface (http://localhost:8000), click
 on "More" > "CNES Analysis"
 
-See also: [Plugin on github](https://github.com/lequal/sonar-cnes-scan-plugin).
+See also: [Plugin on github](https://github.com/cnescatlab/sonar-cnes-scan-plugin).
 
 ### How it works?
 When you start analysis, the CNES-scan plugin will write a `sonar-properties` file
