@@ -3,7 +3,7 @@ This guide will explain how to install and start Docker-CAT. Docker-CAT may work
 
 ## Quick setup
 For a quick setup, you can read the
-[readme file](https://github.com/lequal/docker-cat) from the official repo.
+[readme file](https://github.com/cnescatlab/docker-cat) from the official repo.
 
 ## Complete setup
 
@@ -23,7 +23,7 @@ If needed, you can build the image yourself. If you edit the Docker-CAT image fe
 
 To build your own image, just clone the repo and use `docker build`.
 ```
-git clone https://github.com/lequal/docker-cat
+git clone https://github.com/cnescatlab/docker-cat
 cd docker-cat
 docker build -t <tag> .
 ```
@@ -110,7 +110,7 @@ In your `docker start` command you need to add `-e SONARQUBE_JDBC_USERNAME=value
 
 
 If you did not have database, you can use docker to create your database. Just download the
-`docker-compose.yml` from [the repo](https://github.com/lequal/docker-cat), install docker-compose with your
+`docker-compose.yml` from [the repo](https://github.com/cnescatlab/docker-cat), install docker-compose with your
 package manager (apt, yum, ...) and use `docker-compose up` in your terminal. It will start Docker-CAT and PgSQL
 
 
