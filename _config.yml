@@ -1,5 +1,5 @@
-title: LEQUAL
-description: CNES Software Quality Expertise Laboratory
+title: CAT Lab
+description: CNES Code Analysis Tools Laboratory
 theme: jekyll-theme-slate
 github:
-  repository_url: https://github.com/lequal/
+  repository_url: https://github.com/cnescatlab/
