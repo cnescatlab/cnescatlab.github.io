@@ -1,0 +1,27 @@
+# Description
+# ===========
+# This workflow is triggered each time
+# commits are pushed to GitHub or a pull request is opened.
+# It launches three jobs in parallel : a build with java 8,
+# a build with java 11 and a SonarCloud analysis.
+---
+name: Stats generation
+
+on: [push, pull_request]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-22.04
+    name: Stats for cnes report
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Test cnes-report
+        run: |
+          pip install request tabulate
+          echo "# Downloads for sonar-cnes-report" > stats.md
+          python ci_tools/stats_dl.py >> stats.md
+          cat stats.md
