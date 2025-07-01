@@ -23,8 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13' 
-      - run: python my_script.py
-        run: |
+      - run: |
           pip install request tabulate
           echo "# Downloads for sonar-cnes-report" > stats.md
           python ci_tools/stats_dl.py >> stats.md
