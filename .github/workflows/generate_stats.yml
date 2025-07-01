@@ -19,7 +19,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Test cnes-report
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13' 
+      - run: python my_script.py
         run: |
           pip install request tabulate
           echo "# Downloads for sonar-cnes-report" > stats.md
