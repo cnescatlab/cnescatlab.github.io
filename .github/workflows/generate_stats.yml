@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: '3.13' 
       - run: |
-          pip install request tabulate
+          pip install requests tabulate
           echo "# Downloads for sonar-cnes-report" > stats.md
           python ci_tools/stats_dl.py >> stats.md
           cat stats.md
