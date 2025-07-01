@@ -7,7 +7,7 @@
 ---
 name: Stats generation
 
-on: [push, pull_request]
+on: [workflow_dispatch]
 
 jobs:
 
@@ -28,3 +28,15 @@ jobs:
           echo "# Downloads for sonar-cnes-report" > stats.md
           python ci_tools/stats_dl.py >> stats.md
           cat stats.md
+      - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+        with:
+          add: 'stats.md'
+          author_name: CNES_BOT
+
+          # The email of the user that will be displayed as the author of the commit.
+          # Default: depends on the default_author input
+          author_email: CNES_BOT@donot.reply
+
+          message: 'Updates cnes report download stats'
+
+    
