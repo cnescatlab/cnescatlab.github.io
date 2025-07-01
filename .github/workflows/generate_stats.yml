@@ -7,7 +7,7 @@
 ---
 name: Stats generation
 
-on: [workflow_dispatch, tag]
+on: [workflow_dispatch, create]
 
 jobs:
 
