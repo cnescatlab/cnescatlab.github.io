@@ -7,7 +7,9 @@
 ---
 name: Stats generation
 
-on: [workflow_dispatch, create]
+on:
+  schedule:
+    - cron: "4 0 * * *"
 
 jobs:
 
