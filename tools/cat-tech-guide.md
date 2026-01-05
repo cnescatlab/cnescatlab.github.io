@@ -86,19 +86,11 @@ When you start Docker `init.bash` is runned
 
 
 ## Analyse code
-To start a code analysis, juste use the cnes-scan plugin. For that, open the web interface (http://localhost:8000), click
-on "More" > "CNES Analysis"
+Please refers to the [latest documentation from the github repo](https://github.com/cnescatlab/docker-cat?tab=readme-ov-file#using-classical-way) for more information about analyzing code.
 
-See also: [Plugin on github](https://github.com/cnescatlab/sonar-cnes-scan-plugin).
+Please note that the UI is deprecated and you may use the "classical way".
 
-### How it works?
-When you start analysis, the CNES-scan plugin will write a `sonar-properties` file
-then execute the [sonar-scanner](https://github.com/SonarSource/sonar-scanner-cli).
-
-In the Docker-CAT image you can found several symbolic links to fit with default
-values of path used by the sonar-scanner.
-
-![image](../img/doc-technique/utilisation.png)
+You can also do a standard Sonarqube analysis at this step.
 
 ## Stop container
 Once the container is started, it could be stopped using `docker stop <container_name>`

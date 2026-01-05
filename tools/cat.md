@@ -34,13 +34,7 @@ More technical details in the [technical guide](cat-tech-guide).
 ### Tools included in Docker-CAT
 
 <table><tr><th colspan='2'>DOCKER-CAT</th></tr>
-        <tr><td>Sonarqube 6.7.4 (LTS) or 7.9 (LTS)</td>
-        <td><a href="https://github.com/cnescatlab/sonar-cnes-scan-plugin">sonar-cnes-scan-plugin</a><br>
-        <em>Add a new UI in sonar to start code Analysis with CNES guidelines.</em></td></tr>
-        <tr><td><a href="https://github.com/cnescatlab/sonar-cnes-export-plugin">sonar-cnes-export-plugin</a><br>
-        <em>Let you export sonarqube configuration.</em></td>
-        <td><a href="https://github.com/cnescatlab/sonar-cnes-python-plugin">sonar-cnes-python-plugin</a><br />
-        <em>Add possibility to analyse Python code.</em></td></tr>
+        <tr><td>Sonarqube LTS</td>
         <tr><td><a href="https://github.com/lequal/sonar-cnes-report">sonar-cnes-report</a>
         <br><em>Let you generate some reports. <br> Can be used as sonar-plugin or throught command line.</em></td>
         <td><a href="https://github.com/lequal/sonar-cnes-python-plugin">sonar-cnes-cxx-plugin</a><br>
@@ -70,3 +64,5 @@ You can find more details on the [SonarQube official documentation](https://docs
 
 The picture below shows the key concepts introduced by SonarQube, which are important in order to understand the results of your analysis.
 ![SonarQube Quality Features](../img/sonarqube_quality_explanation.png)
+
+*NB: On the latests sonarqube version, the "Warning" Quality Gate is deprecated* 

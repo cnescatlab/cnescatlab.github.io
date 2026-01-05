@@ -26,10 +26,4 @@ These matrix are available in the README file of each project.
 ## Other tools :
 
 * [sonar-icode-cnes-plugin](https://github.com/cnescatlab/sonar-icode-cnes-plugin) : _Let you import i-Code results in SonarQube._
-* [sonar-cnes-scan-plugin](https://github.com/cnescatlab/sonar-cnes-scan-plugin) : _Provide an HIM to start an analysis directly from the web interface of SonarQube._
-* [sonar-cnes-export-plugin](https://github.com/cnescatlab/sonar-cnes-export-plugin) : _Add ability to export the rules of a given quality profile directly from the web interface._
-* [cnes-pylint-extension](https://github.com/cnescatlab/cnes-pylint-extension) : _Add more checkers to Pylint with CNES guidelines._
-* [sonar-frama-c-plugin](https://github.com/cnescatlab/sonar-frama-c-plugin) : _Let you import Frama-C results in SonarQube._
-* [sonar-shellcheck-plugin](https://github.com/cnescatlab/sonar-shellcheck-plugin) : _Let you import ShellCheck results in SonarQube._
-* [sonar-cnes-cxx-plugin](https://github.com/cnescatlab/sonar-cnes-cxx-plugin) : _Execute C/C++ analysis tools (CppCheck, Rats, Vera++) and import results in SonarQube._
 * [polyspace-report2excel](https://github.com/cnescatlab/polyspace-report2excel): _Extract tables from Polyspace report and copy them in excel file._
